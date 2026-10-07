@@ -288,3 +288,67 @@ footer p {
         min-height: 80vh;
     }
 }
+/* Waste Sorting Challenge */
+
+#waste-game {
+    text-align: center;
+}
+
+.waste-game {
+    margin: 20px auto;
+    padding: 25px;
+    max-width: 600px;
+}
+
+.waste-game button {
+    margin: 8px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#waste-result {
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+
+/* Carbon Footprint Calculator */
+
+#carbon {
+    text-align: center;
+}
+
+.carbon-calculator {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 25px;
+}
+
+.carbon-calculator label {
+    display: block;
+    margin: 15px;
+}
+
+.carbon-calculator input {
+    display: block;
+    width: 90%;
+    margin: 8px auto;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.carbon-calculator button {
+    margin-top: 15px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#carbonResult {
+    margin-top: 20px;
+    font-weight: bold;
+}

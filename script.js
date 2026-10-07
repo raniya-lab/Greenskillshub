@@ -1,54 +1,14 @@
 let points = 0;
 
-const questions = [
-    {
-        question: "Which of these is a renewable source of energy?",
-        options: ["Coal", "Solar energy", "Petrol", "Natural gas"],
-        answer: "Solar energy"
-    },
-    {
-        question: "Which action helps reduce waste?",
-        options: ["Reuse items", "Use more plastic", "Throw everything away", "Burn waste"],
-        answer: "Reuse items"
-    },
-    {
-        question: "Which action saves water?",
-        options: [
-            "Leave the tap running",
-            "Take longer showers",
-            "Turn off the tap while brushing",
-            "Waste clean water"
-        ],
-        answer: "Turn off the tap while brushing"
-    },
-    {
-        question: "What does recycling help us do?",
-        options: [
-            "Create more waste",
-            "Save resources",
-            "Increase pollution",
-            "Waste energy"
-        ],
-        answer: "Save resources"
-    },
-    {
-        question: "Which is an example of sustainable transport?",
-        options: [
-            "Walking",
-            "Using a car for every short trip",
-            "Leaving a vehicle running",
-            "Using more fuel"
-        ],
-        answer: "Walking"
-    }
-];
-
+// Start Green Journey
 function startJourney() {
     document.getElementById("skills").scrollIntoView({
         behavior: "smooth"
     });
 }
 
+
+// Green Challenge
 function completeChallenge() {
     points += 10;
 
@@ -58,50 +18,102 @@ function completeChallenge() {
     alert("🌱 Great job! You earned 10 Green Points!");
 }
 
+
+// Green Quiz
 function startQuiz() {
 
     let score = 0;
 
-    for (let i = 0; i < questions.length; i++) {
+    let answer1 = prompt(
+        "🌱 Question 1:\nWhich is a renewable source of energy?\n\nA. Coal\nB. Solar Energy\nC. Petrol"
+    );
 
-        let q = questions[i];
-
-        let answer = prompt(
-            "🌱 Question " + (i + 1) + " of " + questions.length +
-            "\n\n" + q.question +
-            "\n\nA. " + q.options[0] +
-            "\nB. " + q.options[1] +
-            "\nC. " + q.options[2] +
-            "\nD. " + q.options[3]
-        );
-
-        if (!answer) {
-            continue;
-        }
-
-        let choice = answer.toUpperCase();
-
-        let selectedAnswer;
-
-        if (choice === "A") selectedAnswer = q.options[0];
-        if (choice === "B") selectedAnswer = q.options[1];
-        if (choice === "C") selectedAnswer = q.options[2];
-        if (choice === "D") selectedAnswer = q.options[3];
-
-        if (selectedAnswer === q.answer) {
-            score++;
-        }
+    if (answer1 && answer1.toUpperCase() === "B") {
+        score++;
     }
 
-    let earnedPoints = score * 5;
-    points += earnedPoints;
+    let answer2 = prompt(
+        "♻️ Question 2:\nWhich action helps reduce waste?\n\nA. Reuse items\nB. Throw everything away\nC. Use more plastic"
+    );
+
+    if (answer2 && answer2.toUpperCase() === "A") {
+        score++;
+    }
+
+    let answer3 = prompt(
+        "💧 Question 3:\nWhich action helps save water?\n\nA. Leave the tap running\nB. Turn off the tap while brushing\nC. Waste water"
+    );
+
+    if (answer3 && answer3.toUpperCase() === "B") {
+        score++;
+    }
+
+    if (score === 3) {
+
+        points += 20;
+
+        document.getElementById("points").innerText =
+            "Green Points: " + points;
+
+        alert(
+            "🏆 Excellent!\nYou scored 3/3 and earned 20 Green Points!"
+        );
+
+    } else {
+
+        alert(
+            "🌍 Quiz Complete!\nYour Score: " + score + "/3"
+        );
+    }
+}
+
+
+// Waste Sorting Challenge
+function sortWaste(type) {
+
+    let item = document.getElementById("waste-item").innerText;
+    let result = document.getElementById("waste-result");
+
+    if (item.includes("Banana Peel")) {
+
+        if (type === "organic") {
+
+            result.innerText =
+                "✅ Correct! Banana peels are organic waste.";
+
+            points += 10;
+
+        } else {
+
+            result.innerText =
+                "❌ Try again! Banana peels belong in the organic bin.";
+        }
+
+    }
 
     document.getElementById("points").innerText =
         "Green Points: " + points;
+}
 
-    alert(
-        "🌍 Quiz Complete!\n\n" +
-        "Your Score: " + score + "/" + questions.length +
-        "\nGreen Points Earned: " + earnedPoints
-    );
+
+// Carbon Footprint Calculator
+function calculateCarbon() {
+
+    let carHours =
+        Number(document.getElementById("carHours").value);
+
+    let electricityHours =
+        Number(document.getElementById("electricityHours").value);
+
+    let plasticBottles =
+        Number(document.getElementById("plasticBottles").value);
+
+    let footprint =
+        (carHours * 2) +
+        (electricityHours * 0.5) +
+        (plasticBottles * 0.1);
+
+    document.getElementById("carbonResult").innerText =
+        "🌍 Your estimated daily carbon footprint score is " +
+        footprint.toFixed(1) + " points.";
 }
