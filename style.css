@@ -1,0 +1,290 @@
+/* ================================
+   GreenSkills Hub - Main Styles
+   ================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4fbf5;
+    color: #173b25;
+    line-height: 1.6;
+}
+
+/* ================================
+   NAVIGATION
+   ================================ */
+
+header {
+    background: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 7%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #16833a;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #245333;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #16833a;
+    transform: translateY(-2px);
+}
+
+/* ================================
+   HERO SECTION
+   ================================ */
+
+.hero {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #dff7e5, #f4fff6);
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    color: #126b30;
+    margin: 15px 0;
+}
+
+.hero p {
+    max-width: 700px;
+    font-size: 1.15rem;
+    color: #486351;
+}
+
+.hero .tagline {
+    color: #16833a;
+    font-weight: bold;
+    letter-spacing: 4px;
+}
+
+/* ================================
+   BUTTONS
+   ================================ */
+
+button {
+    border: none;
+    padding: 13px 25px;
+    margin-top: 20px;
+    border-radius: 30px;
+    background: #16833a;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(22, 131, 58, 0.25);
+}
+
+button:hover {
+    background: #0e6129;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(22, 131, 58, 0.35);
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+/* ================================
+   GENERAL SECTIONS
+   ================================ */
+
+section {
+    padding: 80px 7%;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 2.3rem;
+    color: #126b30;
+    margin-bottom: 15px;
+}
+
+section > p {
+    max-width: 700px;
+    margin: 0 auto 35px;
+    color: #587060;
+}
+
+/* ================================
+   SKILLS CARDS
+   ================================ */
+
+.skills-container,
+.career-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.card {
+    background: white;
+    padding: 30px 20px;
+    border-radius: 18px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
+    border-top: 5px solid #39a852;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.card h3 {
+    color: #16833a;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #607568;
+}
+
+/* ================================
+   QUIZ SECTION
+   ================================ */
+
+#quiz {
+    background: #e9f8ed;
+}
+
+#quiz button {
+    background: #126b30;
+}
+
+/* ================================
+   CHALLENGES
+   ================================ */
+
+#challenges {
+    background: #ffffff;
+}
+
+#points {
+    margin-top: 20px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #16833a;
+}
+
+/* ================================
+   CAREERS
+   ================================ */
+
+#careers {
+    background: #e9f8ed;
+}
+
+/* ================================
+   FOOTER
+   ================================ */
+
+footer {
+    background: #103d20;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* ================================
+   ANIMATIONS
+   ================================ */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero h1,
+.hero p,
+.hero button {
+    animation: fadeUp 0.8s ease forwards;
+}
+
+/* ================================
+   RESPONSIVE DESIGN
+   ================================ */
+
+@media (max-width: 900px) {
+    .skills-container,
+    .career-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    header {
+        padding: 15px 5%;
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav a {
+        font-size: 0.9rem;
+    }
+
+    section {
+        padding: 60px 5%;
+    }
+
+    .skills-container,
+    .career-container {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        min-height: 80vh;
+    }
+}
