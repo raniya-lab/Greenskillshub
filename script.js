@@ -22,6 +22,8 @@ function completeChallenge() {
     document.getElementById("points").innerText =
         "Green Points: " + points;
 
+    updateProgress();
+
     alert("🌱 Great job! You earned 10 Green Points!");
 }
 
@@ -80,12 +82,12 @@ function startQuiz() {
 
 
     // Give 5 points for every correct answer
-    let earnedPoints = score * 5;
-
     points += earnedPoints;
 
-    document.getElementById("points").innerText =
-        "Green Points: " + points;
+document.getElementById("points").innerText =
+    "Green Points: " + points;
+
+updateProgress();
 
 
     alert(
@@ -112,16 +114,14 @@ function sortWaste(type) {
     let result = document.getElementById("waste-result");
 
 
-    if (item.includes("Banana Peel")) {
+    if (type === "organic") {
+    result.innerText =
+        "✅ Correct! Banana peels are organic waste.";
 
-        if (type === "organic") {
+    points += 10;
 
-            result.innerText =
-                "✅ Correct! Banana peels are organic waste.";
-
-            points += 10;
-
-        } else {
+    updateProgress();
+} else {
 
             result.innerText =
                 "❌ Try again! Banana peels belong in the organic bin.";
@@ -159,6 +159,7 @@ function calculateCarbon() {
     document.getElementById("carbonResult").innerText =
         "🌍 Your estimated daily carbon footprint score is " +
         footprint.toFixed(1) + " points.";
+updateProgress();
 }
 
 
@@ -208,3 +209,78 @@ function backToDashboard() {
         behavior: "smooth"
     });
 }
+// =========================
+// GREEN PROGRESS SYSTEM
+// =========================
+
+function updateProgress() {
+
+    // Update points
+    document.getElementById("points-display").innerText =
+        "Green Points: " + points;
+
+    let progressFill = document.getElementById("progress-fill");
+    let progressText = document.getElementById("progress-text");
+    let level = document.getElementById("level");
+    let badgeName = document.getElementById("badge-name");
+    let badgeIcon = document.getElementById("badge-icon");
+    let badgeDescription = document.getElementById("badge-description");
+
+
+    // Eco Beginner
+    if (points < 50) {
+
+        level.innerText = "🌱 Eco Beginner";
+
+        progressFill.style.width =
+            (points / 50 * 100) + "%";
+
+        progressText.innerText =
+            points + " / 50 points to Eco Explorer";
+
+        badgeIcon.innerText = "🌱";
+        badgeName.innerText = "Eco Beginner";
+        badgeDescription.innerText =
+            "Keep learning and completing green activities!";
+
+    }
+
+
+    // Eco Explorer
+    else if (points < 100) {
+
+        level.innerText = "🌿 Eco Explorer";
+
+        progressFill.style.width =
+            ((points - 50) / 50 * 100) + "%";
+
+        progressText.innerText =
+            points + " / 100 points to Green Champion";
+
+        badgeIcon.innerText = "🌿";
+        badgeName.innerText = "Eco Explorer";
+        badgeDescription.innerText =
+            "You're becoming a true green skills explorer!";
+
+    }
+
+
+    // Green Champion
+    else {
+
+        level.innerText = "🏆 Green Champion";
+
+        progressFill.style.width = "100%";
+
+        progressText.innerText =
+            "100+ Green Points — You are a Green Champion!";
+
+        badgeIcon.innerText = "🏆";
+        badgeName.innerText = "Green Champion";
+        badgeDescription.innerText =
+            "Amazing! You are making a positive difference for the planet.";
+
+    }
+}
+updateProgress();
+
