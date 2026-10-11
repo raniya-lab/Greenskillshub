@@ -1,6 +1,10 @@
 let points = 0;
 
-// Start Green Journey
+
+// =========================
+// START GREEN JOURNEY
+// =========================
+
 function startJourney() {
     document.getElementById("skills").scrollIntoView({
         behavior: "smooth"
@@ -8,7 +12,10 @@ function startJourney() {
 }
 
 
-// Green Challenge
+// =========================
+// GREEN CHALLENGE
+// =========================
+
 function completeChallenge() {
     points += 10;
 
@@ -19,60 +26,91 @@ function completeChallenge() {
 }
 
 
-// Green Quiz
+// =========================
+// 5-QUESTION GREEN QUIZ
+// =========================
+
 function startQuiz() {
 
     let score = 0;
 
     let answer1 = prompt(
-        "🌱 Question 1:\nWhich is a renewable source of energy?\n\nA. Coal\nB. Solar Energy\nC. Petrol"
+        "🌱 Question 1:\nWhich of these is a renewable source of energy?\n\nA. Coal\nB. Solar energy\nC. Petrol\nD. Natural gas"
     );
 
     if (answer1 && answer1.toUpperCase() === "B") {
         score++;
     }
 
+
     let answer2 = prompt(
-        "♻️ Question 2:\nWhich action helps reduce waste?\n\nA. Reuse items\nB. Throw everything away\nC. Use more plastic"
+        "♻️ Question 2:\nWhich action best follows the 3R principle?\n\nA. Buy more plastic products\nB. Throw away reusable items\nC. Reduce, reuse and recycle\nD. Burn waste"
     );
 
-    if (answer2 && answer2.toUpperCase() === "A") {
+    if (answer2 && answer2.toUpperCase() === "C") {
         score++;
     }
+
 
     let answer3 = prompt(
-        "💧 Question 3:\nWhich action helps save water?\n\nA. Leave the tap running\nB. Turn off the tap while brushing\nC. Waste water"
+        "💧 Question 3:\nWhich action helps conserve water?\n\nA. Keep the tap running while brushing\nB. Take unnecessarily long showers\nC. Fix leaking taps\nD. Leave water running"
     );
 
-    if (answer3 && answer3.toUpperCase() === "B") {
+    if (answer3 && answer3.toUpperCase() === "C") {
         score++;
     }
 
-    if (score === 3) {
 
-        points += 20;
+    let answer4 = prompt(
+        "🌍 Question 4:\nWhich activity can help reduce carbon emissions?\n\nA. Walking or cycling for short journeys\nB. Leaving lights on all day\nC. Burning waste\nD. Using more fuel than necessary"
+    );
 
-        document.getElementById("points").innerText =
-            "Green Points: " + points;
-
-        alert(
-            "🏆 Excellent!\nYou scored 3/3 and earned 20 Green Points!"
-        );
-
-    } else {
-
-        alert(
-            "🌍 Quiz Complete!\nYour Score: " + score + "/3"
-        );
+    if (answer4 && answer4.toUpperCase() === "A") {
+        score++;
     }
+
+
+    let answer5 = prompt(
+        "🌿 Question 5:\nWhich is an example of sustainable living?\n\nA. Wasting food\nB. Using reusable bags and bottles\nC. Using more single-use plastic\nD. Leaving electronic devices on unnecessarily"
+    );
+
+    if (answer5 && answer5.toUpperCase() === "B") {
+        score++;
+    }
+
+
+    // Give 5 points for every correct answer
+    let earnedPoints = score * 5;
+
+    points += earnedPoints;
+
+    document.getElementById("points").innerText =
+        "Green Points: " + points;
+
+
+    alert(
+        "🌍 Quiz Complete!\n\n" +
+        "Your Score: " + score + "/5\n" +
+        "🏆 Green Points Earned: " + earnedPoints
+    );
+
+
+    // Show Back to Dashboard button
+    document.getElementById("quizDashboardBtn").style.display =
+        "inline-block";
 }
 
 
-// Waste Sorting Challenge
+// =========================
+// WASTE SORTING
+// =========================
+
 function sortWaste(type) {
 
     let item = document.getElementById("waste-item").innerText;
+
     let result = document.getElementById("waste-result");
+
 
     if (item.includes("Banana Peel")) {
 
@@ -88,15 +126,18 @@ function sortWaste(type) {
             result.innerText =
                 "❌ Try again! Banana peels belong in the organic bin.";
         }
-
     }
+
 
     document.getElementById("points").innerText =
         "Green Points: " + points;
 }
 
 
-// Carbon Footprint Calculator
+// =========================
+// CARBON FOOTPRINT CALCULATOR
+// =========================
+
 function calculateCarbon() {
 
     let carHours =
@@ -108,35 +149,62 @@ function calculateCarbon() {
     let plasticBottles =
         Number(document.getElementById("plasticBottles").value);
 
+
     let footprint =
         (carHours * 2) +
         (electricityHours * 0.5) +
         (plasticBottles * 0.1);
 
+
     document.getElementById("carbonResult").innerText =
         "🌍 Your estimated daily carbon footprint score is " +
         footprint.toFixed(1) + " points.";
 }
+
+
+// =========================
+// DASHBOARD NAVIGATION
+// =========================
+
 function scrollToWaste() {
+
     document.getElementById("waste-game").scrollIntoView({
         behavior: "smooth"
     });
 }
 
+
 function scrollToCarbon() {
+
     document.getElementById("carbon").scrollIntoView({
         behavior: "smooth"
     });
 }
 
+
 function scrollToChallenges() {
+
     document.getElementById("challenges").scrollIntoView({
         behavior: "smooth"
     });
 }
 
+
 function scrollToCareers() {
+
     document.getElementById("careers").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+
+// =========================
+// BACK TO DASHBOARD
+// =========================
+
+function backToDashboard() {
+
+    document.getElementById("dashboard").scrollIntoView({
         behavior: "smooth"
     });
 }
