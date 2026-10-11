@@ -95,7 +95,34 @@
     </div>
 
 </section>
+<section id="progress">
 
+    <h2>🏆 Your Green Progress</h2>
+
+    <div class="progress-card">
+
+        <div class="level">
+            <h3 id="level">🌱 Eco Beginner</h3>
+            <p id="points-display">Green Points: 0</p>
+        </div>
+
+        <div class="progress-bar">
+            <div id="progress-fill"></div>
+        </div>
+
+        <p id="progress-text">0 / 100 points to Green Champion</p>
+
+        <div class="badge">
+            <span id="badge-icon">🌱</span>
+            <h3 id="badge-name">Eco Beginner</h3>
+            <p id="badge-description">
+                Start completing activities to earn badges!
+            </p>
+        </div>
+
+    </div>
+
+</section> 
     <section id="skills">
 
         <h2>🌱 Explore Green Skills</h2>
@@ -143,7 +170,9 @@
         <button onclick="startQuiz()">
             Start Quiz →
         </button>
-
+<button id="quizDashboardBtn" onclick="backToDashboard()" style="display: none;">
+    ← Back to Dashboard
+</button>
     </section>
 
 
@@ -160,7 +189,9 @@
         </button>
 
         <p id="points">Green Points: 0</p>
-
+<button onclick="backToDashboard()">
+    ← Back to Dashboard
+</button>
     </section>
     
     <section id="waste-game">
@@ -188,6 +219,9 @@
         </button>
 
         <p id="waste-result"></p>
+        <button onclick="backToDashboard()">
+    ← Back to Dashboard
+</button>
 
     </div>
 
@@ -217,11 +251,10 @@
             <input type="number" id="plasticBottles" min="0">
         </label>
 
-        <button onclick="calculateCarbon()">
+        <p id="carbonResult"></p>
+<button onclick="calculateCarbon()">
             Calculate My Footprint
         </button>
-
-        <p id="carbonResult"></p>
 
     </div>
 
@@ -254,7 +287,9 @@
             </div>
 
         </div>
-
+<button onclick="backToDashboard()">
+    ← Back to Dashboard
+</button>
     </section>
 
 
