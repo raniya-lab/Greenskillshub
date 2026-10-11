@@ -117,3 +117,26 @@ function calculateCarbon() {
         "🌍 Your estimated daily carbon footprint score is " +
         footprint.toFixed(1) + " points.";
 }
+function scrollToWaste() {
+    document.getElementById("waste-game").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+function scrollToCarbon() {
+    document.getElementById("carbon").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+function scrollToChallenges() {
+    document.getElementById("challenges").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+function scrollToCareers() {
+    document.getElementById("careers").scrollIntoView({
+        behavior: "smooth"
+    });
+}
