@@ -283,4 +283,3 @@ function updateProgress() {
     }
 }
 updateProgress();
-
