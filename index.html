@@ -52,7 +52,49 @@
         </div>
 
     </section>
+<section id="dashboard">
 
+    <h2>🌱 Your Green Skills Dashboard</h2>
+
+    <p>
+        Explore, learn, play and earn Green Points!
+    </p>
+
+    <div class="dashboard-container">
+
+        <div class="dashboard-card" onclick="startQuiz()">
+            🧠
+            <h3>Green Quiz</h3>
+            <p>Test your green knowledge.</p>
+        </div>
+
+        <div class="dashboard-card" onclick="scrollToWaste()">
+            ♻️
+            <h3>Waste Sorting</h3>
+            <p>Sort waste into the correct bin.</p>
+        </div>
+
+        <div class="dashboard-card" onclick="scrollToCarbon()">
+            🌍
+            <h3>Carbon Calculator</h3>
+            <p>Check your daily carbon impact.</p>
+        </div>
+
+        <div class="dashboard-card" onclick="scrollToChallenges()">
+            🎯
+            <h3>Eco Challenges</h3>
+            <p>Complete challenges and earn points.</p>
+        </div>
+
+        <div class="dashboard-card" onclick="scrollToCareers()">
+            💼
+            <h3>Green Careers</h3>
+            <p>Explore careers that help our planet.</p>
+        </div>
+
+    </div>
+
+</section>
 
     <section id="skills">
 
@@ -120,7 +162,70 @@
         <p id="points">Green Points: 0</p>
 
     </section>
+    
+    <section id="waste-game">
 
+    <h2>♻️ Waste Sorting Challenge</h2>
+
+    <p>
+        Test your knowledge! Choose the correct bin for each item.
+    </p>
+
+    <div class="waste-game">
+
+        <h3 id="waste-item">🍌 Banana Peel</h3>
+
+        <button onclick="sortWaste('organic')">
+            🟢 Organic
+        </button>
+
+        <button onclick="sortWaste('recycle')">
+            🔵 Recyclable
+        </button>
+
+        <button onclick="sortWaste('general')">
+            ⚫ General Waste
+        </button>
+
+        <p id="waste-result"></p>
+
+    </div>
+
+  </section>
+  <section id="carbon">
+
+    <h2>🌍 Carbon Footprint Calculator</h2>
+
+    <p>
+        Estimate your daily carbon footprint based on your everyday activities.
+    </p>
+
+    <div class="carbon-calculator">
+
+        <label>
+            How many hours do you use a car each day?
+            <input type="number" id="carHours" min="0">
+        </label>
+
+        <label>
+            How many hours do you use electricity each day?
+            <input type="number" id="electricityHours" min="0">
+        </label>
+
+        <label>
+            How many plastic bottles do you use each day?
+            <input type="number" id="plasticBottles" min="0">
+        </label>
+
+        <button onclick="calculateCarbon()">
+            Calculate My Footprint
+        </button>
+
+        <p id="carbonResult"></p>
+
+    </div>
+
+</section>
 
     <section id="careers">
 
